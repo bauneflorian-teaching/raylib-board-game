@@ -2,33 +2,30 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug game (macOS)",
+            "name": "Debug game",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/game",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "MIMode": "lldb",
-            "preLaunchTask": "Build (make)",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Debug game (Windows)",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/game.exe",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "MIMode": "gdb",
-            "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
             "preLaunchTask": "Build (make)",
             "externalConsole": true,
-            "environment": [
-                {
-                    "name": "PATH",
-                    "value": "C:/msys64/mingw64/bin;C:/msys64/usr/bin;${env:PATH}"
-                }
-            ]
+            "program": "${workspaceFolder}/build/game",
+            "MIMode": "lldb",
+            "osx": {
+                "program": "${workspaceFolder}/build/game",
+                "MIMode": "lldb"
+            },
+            "windows": {
+                "program": "${workspaceFolder}/build/game.exe",
+                "MIMode": "gdb",
+                "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+                "environment": [
+                    {
+                        "name": "PATH",
+                        "value": "C:/msys64/mingw64/bin;C:/msys64/usr/bin;${env:PATH}"
+                    }
+                ]
+            }
         }
     ]
 }
